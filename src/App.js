@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+// import logo from './logo.svg';
+import ShowingWeather from './ShowingWeather'
 import './App.css';
 
-function App() {
+const App = () => {
+  
+  const [viewTheWeather, setViewTheWeather] = useState(false);
+
+  const handleClick = () => {
+    setViewTheWeather(true);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Weather app</h1>
+      <h3>Know what the weather is!</h3>
+      <p>Do you want to know what the weather is?</p>
+      {  
+        viewTheWeather ? <ShowingWeather  />: <button onClick={handleClick} >is!</button>
+      }
     </div>
   );
 }
