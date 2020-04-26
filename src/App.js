@@ -4,7 +4,7 @@ import ShowingWeather from './ShowingWeather'
 import './App.css';
 
 const App = () => {
-  
+
   const [viewTheWeather, setViewTheWeather] = useState(false);
 
   const handleClick = () => {
@@ -17,7 +17,7 @@ const App = () => {
       <h3>Know what the weather is!</h3>
       <p>Do you want to know what the weather is?</p>
       {  
-        viewTheWeather ? <ShowingWeather  />: <button onClick={handleClick} >is!</button>
+        viewTheWeather ? <ShowingWeather />: <button onClick={handleClick} >is!</button>
       }
     </div>
   );
