@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import useGeolocation from 'react-hook-geolocation';
 
-const ShowingWeather = () => {
-  const geolocation = useGeolocation()
-  const latitude = geolocation.latitude;
-  const longitude = geolocation.longitude;
+const ShowingWeather = ({ latitude, longitude }) => {
 
   const [api, setApi] = useState('');
 
   useEffect(() => {
-    fetch(`https://fcc-weather-api.glitch.me/api/current?lat=${latitude}lon=${longitude}`)
-    .then(response => response.json())
-    .then((user) =>{
-      console.log(user)  
-      setApi(user)
-    })
+    fetchData();
   }, [])
 
-    // console.log(geolocation.latitude, 'latitude')
+  const fetchData = () => {
+    fetch(`https://fcc-weather-api.glitch.me/api/current?lat=${latitude}&lon=${longitude}`)
+    .then(response => response.json())
+    .then((resJson) =>{
+      console.log(resJson, 'resJson')  
+      setApi(resJson)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
 
   return (
     <div>
       <h1>cold</h1>
       <p>{api.name}</p>
-      <p>{geolocation.latitude}</p>
-      <p>{geolocation.longitude}</p>
+      <p>{latitude}</p>
+      <p>{longitude}</p>
+      {/* <p>{api}</p> */}
     </div>
   )
 }
