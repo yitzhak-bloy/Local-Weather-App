@@ -20,14 +20,9 @@ const App = () => {
     setLongitude(geolocation.longitude)
   },[geolocation])
 
-
   const handleClick = () => {
     setViewTheWeather(true);
   }
-
-  console.log(latitude, 'sdf')
-  console.log(geolocation)
-
 
   return (
     <div className="App">
