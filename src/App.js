@@ -7,8 +7,6 @@ import './App.css';
 const App = () => {
 
   const geolocation = useGeolocation()
-
-  const [viewTheWeather, setViewTheWeather] = useState(false);
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
 
@@ -20,17 +18,15 @@ const App = () => {
     setLongitude(geolocation.longitude)
   },[geolocation])
 
-  const handleClick = () => {
-    setViewTheWeather(true);
-  }
-
   return (
     <div className="App">
-      <h1>Weather app</h1>
-      <h3>Know what the weather is!</h3>
-      <p>Do you want to know what the weather is?</p>
-      {  
-        viewTheWeather ? <ShowingWeather latitude={latitude} longitude={longitude} />: <button onClick={handleClick} >is!</button>
+      <h1>מזג אוויר</h1>
+      <h3>!לדעת מה מזג האוויר ברגע זה</h3>
+      { 
+        latitude ?
+        <ShowingWeather latitude={latitude} longitude={longitude} /> 
+        :
+        <p>.המתן בסבלנות, אנו מעבדים את הנתונים</p> 
       }
     </div>
   );

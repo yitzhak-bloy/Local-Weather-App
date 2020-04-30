@@ -22,22 +22,22 @@ const ShowingWeather = ({ latitude, longitude }) => {
 
   return (
     <div>
-      <h1>cold</h1>
       <p>{api.name}</p>
-      <p>רוחב{latitude}</p>
-      <p>אורך{longitude}</p>
       {
         api.main ? 
         <div>
           <p>מדינה: {api.sys.country}</p>
           <p>{api.main.weather}</p>
-          <p>temp: {api.main.temp}</p>
-          <p>temp_max: {api.main.temp_max}</p>
-          <p>temp_min: {api.main.temp_min}</p>
-          <p>feels_like: {api.main.feels_like}</p>
+          <img src={api.weather[0].icon} alt="איקון מזג אוויר" height="150" width="150" />
+          <p>{api.main.temp} :טמפרטורה כעת</p>
+          <p>{api.main.temp_max} :טמפרטורה מקסימלית</p>
+          <p>{api.main.temp_min} :טמפרטורה מינימלית</p>
+          <p>{api.main.feels_like} :מרגיש כמו</p>
+          <p>{api.weather[0].description}</p>
         </div>
-         : 
-        <p>המתן בסבלנות</p> }
+        : 
+        <p>...המתן בסבלנות, אנו מעבדים את הנתונים</p> 
+      }
     </div>
   )
 }
