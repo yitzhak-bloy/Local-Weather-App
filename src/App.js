@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import logo from './logo.svg';
 import ShowingWeather from './ShowingWeather'
 import useGeolocation from 'react-hook-geolocation';
 import './App.css';

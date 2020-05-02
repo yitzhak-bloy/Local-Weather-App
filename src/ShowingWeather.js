@@ -51,10 +51,10 @@ const ShowingWeather = ({ latitude, longitude }) => {
         <div>
           <p>{api.sys.country}, {api.name}  :אנו מזהים שאתה נמצא ב</p>
           <img src={api.weather[0].icon} alt="איקון מזג אוויר" height="150" width="150" />
-          <p>{temp} :טמפרטורה כעת</p>
-          <p>{temp_max} :טמפרטורה מקסימלית</p>
-          <p>{temp_min} :טמפרטורה מינימלית</p>
-          <p>{feels_like} :מרגיש כמו</p>
+          <p>{temp}&#186; :טמפרטורה כעת</p>
+          <p>{temp_max}&#186; :טמפרטורה מקסימלית</p>
+          <p>{temp_min}&#186; :טמפרטורה מינימלית</p>
+          <p>{feels_like}&#186; :מרגיש כמו</p>
           {
             scale === 'Celsius' ?
             <button onClick={handleClick} >אני רוצה בפרנהייט</button>
